@@ -1,7 +1,7 @@
 import React from 'react'
 import CtaButton from './cta-button'
 
-export function ReservationSection() {
+export default function Reservation() {
   return (
     <section id="reservation" className="py-20 bg-slate-950 text-white relative overflow-hidden">
       <div className="mx-auto max-w-4xl px-4 text-center relative z-10">
@@ -24,5 +24,3 @@ export function ReservationSection() {
     </section>
   )
 }
-
-export default ReservationSection
