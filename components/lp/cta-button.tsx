@@ -2,13 +2,22 @@ import React from 'react'
 
 interface CTAButtonProps {
   href?: string
-  children: React.ReactNode
+  children?: React.ReactNode
   className?: string
   size?: 'normal' | 'large'
 }
 
-export function CtaButton({ href = '#reservation', children, className = '', size = 'normal' }: CTAButtonProps) {
-  const sizeClasses = size === 'large' ? 'px-8 py-4 text-lg font-bold' : 'px-6 py-3 text-base font-semibold'
+export function CtaButton({
+  href = '#reservation',
+  children = '無料オープンキャンパスに参加する',
+  className = '',
+  size = 'normal',
+}: CTAButtonProps) {
+  const sizeClasses =
+    size === 'large'
+      ? 'px-8 py-4 text-lg font-bold'
+      : 'px-6 py-3 text-base font-semibold'
+
   return (
     <a
       href={href}
