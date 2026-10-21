@@ -1,7 +1,7 @@
 import React from 'react'
 import SectionHeading from './section-heading'
 
-export function OpenCampusSection() {
+export function OpenCampus() {
   return (
     <section id="open-campus" className="py-20 bg-slate-900 text-white">
       <div className="mx-auto max-w-6xl px-4 md:px-6">
@@ -70,4 +70,4 @@ export function OpenCampusSection() {
   )
 }
 
-export default OpenCampusSection
+export default OpenCampus
