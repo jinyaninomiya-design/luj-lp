@@ -3,11 +3,20 @@ import React from 'react'
 interface SectionHeadingProps {
   title: React.ReactNode
   subtitle?: React.ReactNode
+  description?: React.ReactNode
   eyebrow?: string
   centered?: boolean
 }
 
-export function SectionHeading({ title, subtitle, eyebrow, centered = true }: SectionHeadingProps) {
+export function SectionHeading({
+  title,
+  subtitle,
+  description,
+  eyebrow,
+  centered = true,
+}: SectionHeadingProps) {
+  const subContent = subtitle || description
+
   return (
     <div className={`mb-10 ${centered ? 'text-center' : ''}`}>
       {eyebrow && (
@@ -16,7 +25,7 @@ export function SectionHeading({ title, subtitle, eyebrow, centered = true }: Se
         </span>
       )}
       <h2 className="text-2xl md:text-3xl font-bold text-slate-900 tracking-tight">{title}</h2>
-      {subtitle && <p className="mt-2 text-slate-600 text-sm md:text-base">{subtitle}</p>}
+      {subContent && <p className="mt-2 text-slate-600 text-sm md:text-base">{subContent}</p>}
     </div>
   )
 }
