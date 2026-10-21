@@ -7,7 +7,7 @@ interface CTAButtonProps {
   size?: 'normal' | 'large'
 }
 
-export default function CTAButton({ href = '#reservation', children, className = '', size = 'normal' }: CTAButtonProps) {
+export function CtaButton({ href = '#reservation', children, className = '', size = 'normal' }: CTAButtonProps) {
   const sizeClasses = size === 'large' ? 'px-8 py-4 text-lg font-bold' : 'px-6 py-3 text-base font-semibold'
   return (
     <a
@@ -18,3 +18,5 @@ export default function CTAButton({ href = '#reservation', children, className =
     </a>
   )
 }
+
+export default CtaButton
