@@ -1,32 +1,9 @@
-import { Building2, Clock, MessagesSquare, Shirt, Briefcase, Mic } from 'lucide-react'
-import { OPEN_CAMPUS_DATES } from '@/lib/site'
-import { SectionHeading } from './section-heading'
+import React from 'react'
+import SectionHeading from './section-heading'
 
-// TODO: 当日の流れ・所要時間は仮の内容です。実際のプログラムに合わせて修正してください。
-const STEPS = [
-  {
-    icon: Building2,
-    title: 'キャンパス見学',
-    body: '国際色豊かなキャンパスの教室や施設を見学し、LUJの学びの環境を体感できます。',
-    duration: '約30分',
-  },
-  {
-    icon: Mic,
-    title: '学校説明・プログラム紹介',
-    body: 'LUJの特長、学費、就職実績、2027年1月開講予定のオンライン特別プログラムについてご説明します。',
-    duration: '約40分',
-  },
-  {
-    icon: MessagesSquare,
-    title: '個別相談',
-    body: '英語への不安、出願方法、学費など、気になることを個別にご相談いただけます。',
-    duration: '約30分',
-  },
-]
-
-export function OpenCampus() {
+export function OpenCampusSection() {
   return (
-    <section id="open-campus" className="scroll-mt-16 bg-navy-deep py-20 text-white md:py-28">
+    <section id="open-campus" className="py-20 bg-slate-900 text-white">
       <div className="mx-auto max-w-6xl px-4 md:px-6">
         <SectionHeading
           tone="dark"
@@ -35,76 +12,56 @@ export function OpenCampus() {
           description="実際のキャンパスの雰囲気や、教授・スタッフとの距離の近さを、ぜひ体感してください。"
         />
 
-        <div className="mx-auto mt-8 flex max-w-xl flex-wrap justify-center gap-3">
-          <span className="inline-flex items-center gap-2 rounded-full bg-gold px-5 py-2 text-sm font-bold text-navy-deep">
-            <Briefcase className="size-4" aria-hidden="true" />
-            手ぶらでOK
-          </span>
-          <span className="inline-flex items-center gap-2 rounded-full bg-gold px-5 py-2 text-sm font-bold text-navy-deep">
-            <Shirt className="size-4" aria-hidden="true" />
-            服装自由
-          </span>
-          <span className="inline-flex items-center gap-2 rounded-full border border-white/30 px-5 py-2 text-sm font-bold">
-            参加無料
-          </span>
-        </div>
-
-        <div className="mt-14 grid gap-10 lg:grid-cols-[1fr_1.3fr]">
-          <div>
-            <h3 className="flex items-center gap-2 text-lg font-bold">
-              <Clock className="size-5 text-gold" aria-hidden="true" />
+        <div className="mt-12 grid gap-8 md:grid-cols-2">
+          {/* 開催日程 */}
+          <div className="rounded-2xl border border-slate-800 bg-slate-800/50 p-6 md:p-8 backdrop-blur">
+            <h3 className="text-lg font-bold text-amber-400 mb-6 flex items-center gap-2">
+              <span className="inline-block w-2 h-2 rounded-full bg-amber-400"></span>
               開催日程
             </h3>
-            <ul className="mt-5 grid gap-3">
-              {OPEN_CAMPUS_DATES.map((item, index) => (
-                <li
-                  key={index}
-                  className="flex items-center justify-between gap-4 rounded-2xl bg-white/5 px-5 py-4 ring-1 ring-white/10"
-                >
-                  <div className="flex items-baseline gap-2">
-                    <span className="font-display text-2xl font-black">{item.date}</span>
-                    <span className="text-sm text-white/70">{`(${item.day})`}</span>
-                    <span className="ml-2 text-sm text-white/80">{item.time}</span>
-                  </div>
-                  <span
-                    className={
-                      item.highlight
-                        ? 'shrink-0 rounded-full bg-gold px-3 py-1 text-xs font-bold text-navy-deep'
-                        : 'shrink-0 rounded-full bg-white/10 px-3 py-1 text-xs font-medium text-white'
-                    }
-                  >
-                    {item.status}
-                  </span>
-                </li>
-              ))}
+            <ul className="space-y-4 text-sm md:text-base">
+              <li className="flex justify-between items-center pb-3 border-b border-slate-700/50">
+                <span className="font-semibold text-slate-200">2026年11月15日(土)</span>
+                <span className="text-amber-300 font-mono">13:00 - 15:00</span>
+              </li>
+              <li className="flex justify-between items-center pb-3 border-b border-slate-700/50">
+                <span className="font-semibold text-slate-200">2026年12月06日(日)</span>
+                <span className="text-amber-300 font-mono">13:00 - 15:00</span>
+              </li>
             </ul>
-            <p className="mt-4 text-xs text-white/60">※ 開催日程・内容は変更になる場合があります。最新情報は予約フォームをご確認ください。</p>
+            <p className="mt-6 text-xs text-slate-400">
+              ※個別相談・保護者様のみのご参加も可能です。
+            </p>
           </div>
 
-          <div>
-            <h3 className="text-lg font-bold">当日の流れ</h3>
-            <ol className="mt-5 grid gap-4">
-              {STEPS.map((step, index) => (
-                <li key={index} className="relative flex gap-4 rounded-2xl bg-white p-5 text-foreground">
-                  <div className="flex flex-col items-center">
-                    <span className="flex size-12 items-center justify-center rounded-xl bg-navy text-gold">
-                      <step.icon className="size-6" aria-hidden="true" />
-                    </span>
-                    <span className="mt-2 font-display text-[11px] font-bold tracking-widest text-navy">
-                      STEP {index + 1}
-                    </span>
-                  </div>
-                  <div className="flex-1">
-                    <div className="flex flex-wrap items-center justify-between gap-2">
-                      <p className="text-lg font-bold text-navy">{step.title}</p>
-                      <span className="rounded-full bg-gold-soft px-2.5 py-0.5 text-xs font-medium text-navy">
-                        {step.duration}
-                      </span>
-                    </div>
-                    <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">{step.body}</p>
-                  </div>
-                </li>
-              ))}
+          {/* 当日の流れ */}
+          <div className="rounded-2xl border border-slate-800 bg-slate-800/50 p-6 md:p-8 backdrop-blur">
+            <h3 className="text-lg font-bold text-amber-400 mb-6 flex items-center gap-2">
+              <span className="inline-block w-2 h-2 rounded-full bg-amber-400"></span>
+              当日の流れ
+            </h3>
+            <ol className="space-y-4 text-sm">
+              <li className="flex gap-4">
+                <span className="font-mono text-amber-400 font-bold">01</span>
+                <div>
+                  <h4 className="font-semibold text-slate-200">キャンパス見学 & 大学説明</h4>
+                  <p className="text-xs text-slate-400 mt-1">施設のご案内と大学の特長を分かりやすく説明します。</p>
+                </div>
+              </li>
+              <li className="flex gap-4">
+                <span className="font-mono text-amber-400 font-bold">02</span>
+                <div>
+                  <h4 className="font-semibold text-slate-200">模擬授業の体験</h4>
+                  <p className="text-xs text-slate-400 mt-1">実際の授業の雰囲気や英語での学びを体感いただけます。</p>
+                </div>
+              </li>
+              <li className="flex gap-4">
+                <span className="font-mono text-amber-400 font-bold">03</span>
+                <div>
+                  <h4 className="font-semibold text-slate-200">個別相談コーナー</h4>
+                  <p className="text-xs text-slate-400 mt-1">入試・学費・キャリア等、何でもお気軽にご相談ください。</p>
+                </div>
+              </li>
             </ol>
           </div>
         </div>
@@ -112,3 +69,5 @@ export function OpenCampus() {
     </section>
   )
 }
+
+export default OpenCampusSection
