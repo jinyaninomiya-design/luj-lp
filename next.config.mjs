@@ -1,12 +1,8 @@
-/** @type {import('next').NextConfig} */
+/** @type {import('next').NextModel} */
 const nextConfig = {
-  typescript: {
-    // デプロイ時の型エラーでビルドを落とさない設定
-    ignoreBuildErrors: true,
-  },
-  eslint: {
-    // デプロイ時のESLintエラーを無視する設定
-    ignoreDuringBuilds: true,
+  output: 'export',
+  images: {
+    unoptimized: true,
   },
 };
 
