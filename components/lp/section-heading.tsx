@@ -6,7 +6,7 @@ interface SectionHeadingProps {
   centered?: boolean
 }
 
-export default function SectionHeading({ title, subtitle, centered = true }: SectionHeadingProps) {
+export function SectionHeading({ title, subtitle, centered = true }: SectionHeadingProps) {
   return (
     <div className={`mb-10 ${centered ? 'text-center' : ''}`}>
       <h2 className="text-2xl md:text-3xl font-bold text-slate-900 tracking-tight">{title}</h2>
@@ -14,3 +14,5 @@ export default function SectionHeading({ title, subtitle, centered = true }: Sec
     </div>
   )
 }
+
+export default SectionHeading
